@@ -77,15 +77,40 @@
 
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Bičovití
 :Bičovití rdf:type owl:Class ;
-          rdfs:subClassOf :TvarOcasu ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :jeTvarOcasu ;
-                            owl:someValuesFrom :DlouhýOcas
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :jeTvarOcasu ;
-                            owl:someValuesFrom :OcasSOstnem
-                          ] .
+          owl:equivalentClass [ owl:intersectionOf ( :TvarOcasu
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :jeTvarOcasu ;
+                                                       owl:someValuesFrom :DlouhýOcas
+                                                     ]
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :jeTvarOcasu ;
+                                                       owl:someValuesFrom :OcasSOstnem
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#OcasBezOstnu
+:OcasBezOstnu rdf:type owl:Class ;
+              rdfs:subClassOf :TvarOcasu ;
+              owl:disjointWith :OcasSOstnem .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Trnuchy
+:Trnuchy rdf:type owl:Class ;
+         owl:equivalentClass [ owl:intersectionOf ( :TvarOcasu
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :jeTvarOcasu ;
+                                                      owl:someValuesFrom :OcasBezOstnu
+                                                    ]
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :jeTvarOcasu ;
+                                                      owl:someValuesFrom :KrátkýOcas
+                                                    ]
+                                                  ) ;
+                               rdf:type owl:Class
+                             ] .
 
 
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Barva
