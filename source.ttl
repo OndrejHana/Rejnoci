@@ -14,52 +14,80 @@
 
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/jeBarva
 :jeBarva rdf:type owl:ObjectProperty ;
-         owl:inverseOf :máBarvu .
+         rdfs:subPropertyOf :jeTvarOcasu ;
+         owl:inverseOf :maBarvu ;
+         rdfs:domain :Barva ;
+         rdfs:range :Rejnok .
 
 
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/jeTvarOcasu
 :jeTvarOcasu rdf:type owl:ObjectProperty ;
-             owl:inverseOf :máTvarOcasu .
+             owl:inverseOf :maTvarOcasu ;
+             rdfs:domain :TvarOcasu ;
+             rdfs:range :Rejnok .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/jeTvarTěla
-:jeTvarTěla rdf:type owl:ObjectProperty ;
-            owl:inverseOf :máTvarTěla .
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/jeTvarTela
+:jeTvarTela rdf:type owl:ObjectProperty ;
+            owl:inverseOf :maTvarTela ;
+            rdfs:domain :TvarTela ;
+            rdfs:range :Rejnok .
 
 
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/jeVelikost
 :jeVelikost rdf:type owl:ObjectProperty ;
-            owl:inverseOf :máVelikost .
+            owl:inverseOf :maVelikost ;
+            rdfs:domain :Velikost ;
+            rdfs:range :Rejnok .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/jeZpůsobŽivota
-:jeZpůsobŽivota rdf:type owl:ObjectProperty ;
-                owl:inverseOf :máZpůsobŽivota .
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/jeVyskytem
+:jeVyskytem rdf:type owl:ObjectProperty ;
+            owl:inverseOf :maVyskyt ;
+            rdfs:domain :MistoVyskytu ;
+            rdfs:range :Rejnok .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/máBarvu
-:máBarvu rdf:type owl:ObjectProperty ;
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/jeZpusobZivota
+:jeZpusobZivota rdf:type owl:ObjectProperty ;
+                owl:inverseOf :maZpusobZivota ;
+                rdfs:range :Rejnok .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/maBarvu
+:maBarvu rdf:type owl:ObjectProperty ;
+         rdfs:domain :Rejnok ;
          rdfs:range :Barva .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/máTvarOcasu
-:máTvarOcasu rdf:type owl:ObjectProperty ;
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/maTvarOcasu
+:maTvarOcasu rdf:type owl:ObjectProperty ;
+             rdfs:domain :Rejnok ;
              rdfs:range :TvarOcasu .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/máTvarTěla
-:máTvarTěla rdf:type owl:ObjectProperty ;
-            rdfs:range :TvarTěla .
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/maTvarTela
+:maTvarTela rdf:type owl:ObjectProperty ;
+            rdfs:domain :Rejnok ;
+            rdfs:range :TvarTela .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/máVelikost
-:máVelikost rdf:type owl:ObjectProperty ;
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/maVelikost
+:maVelikost rdf:type owl:ObjectProperty ;
+            rdfs:domain :Rejnok ;
             rdfs:range :Velikost .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/máZpůsobŽivota
-:máZpůsobŽivota rdf:type owl:ObjectProperty ;
-                rdfs:range :ZpůsobŽivota .
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/maVyskyt
+:maVyskyt rdf:type owl:ObjectProperty ;
+          rdfs:domain :Rejnok ;
+          rdfs:range :MistoVyskytu .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/maZpusobZivota
+:maZpusobZivota rdf:type owl:ObjectProperty ;
+                rdfs:domain :Rejnok ;
+                rdfs:range :ZpusobZivota .
 
 
 #################################################################
@@ -75,12 +103,16 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Bičovití
-:Bičovití rdf:type owl:Class ;
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Barva
+:Barva rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Bicoviti
+:Bicoviti rdf:type owl:Class ;
           owl:equivalentClass [ owl:intersectionOf ( :TvarOcasu
                                                      [ rdf:type owl:Restriction ;
                                                        owl:onProperty :jeTvarOcasu ;
-                                                       owl:someValuesFrom :DlouhýOcas
+                                                       owl:someValuesFrom :DlouhyOcas
                                                      ]
                                                      [ rdf:type owl:Restriction ;
                                                        owl:onProperty :jeTvarOcasu ;
@@ -91,51 +123,30 @@
                               ] .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#OcasBezOstnu
-:OcasBezOstnu rdf:type owl:Class ;
-              rdfs:subClassOf :TvarOcasu ;
-              owl:disjointWith :OcasSOstnem .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Trnuchy
-:Trnuchy rdf:type owl:Class ;
-         owl:equivalentClass [ owl:intersectionOf ( :TvarOcasu
-                                                    [ rdf:type owl:Restriction ;
-                                                      owl:onProperty :jeTvarOcasu ;
-                                                      owl:someValuesFrom :OcasBezOstnu
-                                                    ]
-                                                    [ rdf:type owl:Restriction ;
-                                                      owl:onProperty :jeTvarOcasu ;
-                                                      owl:someValuesFrom :KrátkýOcas
-                                                    ]
-                                                  ) ;
-                               rdf:type owl:Class
-                             ] .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Barva
-:Barva rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/ChrupavčitáRyba
-:ChrupavčitáRyba rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/DlouhýOcas
-:DlouhýOcas rdf:type owl:Class ;
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/DlouhyOcas
+:DlouhyOcas rdf:type owl:Class ;
             rdfs:subClassOf :TvarOcasu ;
-            owl:disjointWith :KrátkýOcas .
+            owl:disjointWith :KratkyOcas .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/KrátkýOcas
-:KrátkýOcas rdf:type owl:Class ;
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/KratkyOcas
+:KratkyOcas rdf:type owl:Class ;
             rdfs:subClassOf :TvarOcasu .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/MořskýRejnok
-:MořskýRejnok rdf:type owl:Class ;
-              rdfs:subClassOf :Rejnok ;
-              owl:disjointWith :SladkovodníRejnok .
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/MistoVyskytu
+:MistoVyskytu rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Morsky
+:Morsky rdf:type owl:Class ;
+        rdfs:subClassOf :MistoVyskytu .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/OcasBezOstnu
+:OcasBezOstnu rdf:type owl:Class ;
+              rdfs:subClassOf :TvarOcasu ;
+              owl:disjointWith :OcasSOstnem .
 
 
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/OcasSOstnem
@@ -143,41 +154,72 @@
              rdfs:subClassOf :TvarOcasu .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Oválný
-:Oválný rdf:type owl:Class ;
-        rdfs:subClassOf :TvarTěla ;
-        owl:disjointWith :Plochý .
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Ovalny
+:Ovalny rdf:type owl:Class ;
+        rdfs:subClassOf :TvarTela ;
+        owl:disjointWith :Plochy .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Plochý
-:Plochý rdf:type owl:Class ;
-        rdfs:subClassOf :TvarTěla .
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Plochy
+:Plochy rdf:type owl:Class ;
+        rdfs:subClassOf :TvarTela .
 
 
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Rejnok
 :Rejnok rdf:type owl:Class ;
-        rdfs:subClassOf :ChrupavčitáRyba .
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :maTvarOcasu ;
+                          owl:someValuesFrom :TvarOcasu
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :maTvarTela ;
+                          owl:someValuesFrom :TvarTela
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :maVyskyt ;
+                          owl:someValuesFrom :MistoVyskytu
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :maZpusobZivota ;
+                          owl:someValuesFrom :ZpusobZivota
+                        ] .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/SladkovodníRejnok
-:SladkovodníRejnok rdf:type owl:Class ;
-                   rdfs:subClassOf :Rejnok .
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Sladkovodni
+:Sladkovodni rdf:type owl:Class ;
+             rdfs:subClassOf :MistoVyskytu .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Trnuchy
+:Trnuchy rdf:type owl:Class ;
+         owl:equivalentClass [ owl:intersectionOf ( :TvarOcasu
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :jeTvarOcasu ;
+                                                      owl:someValuesFrom :KratkyOcas
+                                                    ]
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :jeTvarOcasu ;
+                                                      owl:someValuesFrom :OcasBezOstnu
+                                                    ]
+                                                  ) ;
+                               rdf:type owl:Class
+                             ] .
 
 
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/TvarOcasu
 :TvarOcasu rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/TvarTěla
-:TvarTěla rdf:type owl:Class .
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/TvarTela
+:TvarTela rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Velikost
 :Velikost rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/ZpůsobŽivota
-:ZpůsobŽivota rdf:type owl:Class .
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/ZpusobZivota
+:ZpusobZivota rdf:type owl:Class .
 
 
 #################################################################
@@ -186,7 +228,7 @@
 
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Bičovitý
 :Bičovitý rdf:type owl:NamedIndividual ,
-                   :DlouhýOcas ,
+                   :DlouhyOcas ,
                    :OcasSOstnem .
 
 
@@ -202,7 +244,7 @@
 
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/ObvykléTělo
 :ObvykléTělo rdf:type owl:NamedIndividual ,
-                      :TvarTěla ;
+                      :TvarTela ;
              rdfs:label "Standardní tvar těla" .
 
 
@@ -213,7 +255,7 @@
 
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/UDna
 :UDna rdf:type owl:NamedIndividual ,
-               :ZpůsobŽivota .
+               :ZpusobZivota .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
