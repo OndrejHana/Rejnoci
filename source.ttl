@@ -93,50 +93,187 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#AsijskySladkovodniRejnok
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Bicoviti
+:Bicoviti rdf:type owl:Class ;
+          owl:equivalentClass [ owl:intersectionOf ( :BicovityOcas
+                                                     :Celed
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Bicovity
+:Bicovity rdf:type owl:Class ;
+          rdfs:subClassOf :TvarOcasu .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#BicovityOcas
+:BicovityOcas rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( :DlouhyOcas
+                                                         :OcasSOstnem
+                                                         :TvarOcasu
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Celed
+:Celed rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#DlouhyAKratkyOcas
+:DlouhyAKratkyOcas rdf:type owl:Class ;
+                   owl:equivalentClass [ owl:intersectionOf ( :DlouhyOcas
+                                                              :KratkyOcas
+                                                              :TestovaciTrida
+                                                            ) ;
+                                         rdf:type owl:Class
+                                       ] ;
+                   rdfs:comment "Rejnok nemůže mít zároveň krátký a dlouhý ocas" .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#KratkyBezOstnu
+:KratkyBezOstnu rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( :KratkyOcas
+                                                           :OcasBezOstnu
+                                                           :TvarOcasu
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#MasivniATenkyOcas
+:MasivniATenkyOcas rdf:type owl:Class ;
+                   owl:equivalentClass [ owl:intersectionOf ( :MasivniOcas
+                                                              :TenkyOcas
+                                                              :TestovaciTrida
+                                                            ) ;
+                                         rdf:type owl:Class
+                                       ] ;
+                   rdfs:comment "Rejnok nemůže mít zároveň masivní a tenký ocas." .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#MorskyASladkovodni
+:MorskyASladkovodni rdf:type owl:Class ;
+                    rdfs:subClassOf :TestovaciTrida .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#MorskyASladkovodniVyskyt
+:MorskyASladkovodniVyskyt rdf:type owl:Class ;
+                          owl:equivalentClass [ owl:intersectionOf ( :Morsky
+                                                                     :Sladkovodni
+                                                                     :TestovaciTrida
+                                                                   ) ;
+                                                rdf:type owl:Class
+                                              ] ;
+                          rdfs:comment "Rejnok žije buď ve sladkovodním nebo mořském prostředí" .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Trnuchy
+:Trnuchy rdf:type owl:Class ;
+         owl:equivalentClass [ owl:intersectionOf ( :Celed
+                                                    :KratkyBezOstnu
+                                                  ) ;
+                               rdf:type owl:Class
+                             ] .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu
+<http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/AsijskySladkovodniRejnok
 :AsijskySladkovodniRejnok rdf:type owl:Class ;
-                          rdfs:subClassOf :Rejnok ,
-                                          [ rdf:type owl:Restriction ;
+                          owl:equivalentClass [ owl:intersectionOf ( :Rejnok
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :maBarvu ;
+                                                                       owl:someValuesFrom :Hneda
+                                                                     ]
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :maBarvu ;
+                                                                       owl:someValuesFrom :Seda
+                                                                     ]
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :maBarvu ;
+                                                                       owl:someValuesFrom :Zelena
+                                                                     ]
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :maTvarOcasu ;
+                                                                       owl:someValuesFrom :DlouhyOcas
+                                                                     ]
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :maTvarOcasu ;
+                                                                       owl:someValuesFrom :TenkyOcas
+                                                                     ]
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :maTvarTela ;
+                                                                       owl:someValuesFrom :Plochy
+                                                                     ]
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :maVyskyt ;
+                                                                       owl:someValuesFrom :Sladkovodni
+                                                                     ]
+                                                                   ) ;
+                                                rdf:type owl:Class
+                                              ] ;
+                          rdfs:subClassOf [ rdf:type owl:Restriction ;
                                             owl:onProperty :maBarvu ;
-                                            owl:someValuesFrom :Hneda
-                                          ] ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty :maBarvu ;
-                                            owl:someValuesFrom :Seda
-                                          ] ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty :maBarvu ;
-                                            owl:someValuesFrom :Zelena
+                                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                owl:unionOf ( :Barva
+                                                                              :Hneda
+                                                                              :Seda
+                                                                              :Zelena
+                                                                            )
+                                                              ]
                                           ] ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty :maTvarOcasu ;
-                                            owl:someValuesFrom :TenkyOcas
-                                          ] ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty :maTvarOcasu ;
-                                            owl:someValuesFrom :DlouhyOcas
+                                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                owl:unionOf ( :DlouhyOcas
+                                                                              :TenkyOcas
+                                                                              :TvarOcasu
+                                                                            )
+                                                              ]
                                           ] ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty :maTvarTela ;
-                                            owl:someValuesFrom :Plochy
+                                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                owl:unionOf ( :Plochy
+                                                                              :TvarTela
+                                                                            )
+                                                              ]
                                           ] ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty :maVyskyt ;
-                                            owl:someValuesFrom :Sladkovodni
+                                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                owl:unionOf ( :MistoVyskytu
+                                                                              :Sladkovodni
+                                                                            )
+                                                              ]
                                           ] .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Cerna
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Barva
+:Barva rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Cerna
 :Cerna rdf:type owl:Class ;
        rdfs:subClassOf :Barva .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ElektrickeOrgany
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/DlouhyOcas
+:DlouhyOcas rdf:type owl:Class ;
+            rdfs:subClassOf :TvarOcasu ;
+            owl:disjointWith :KratkyOcas .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/ElektrickeOrgany
 :ElektrickeOrgany rdf:type owl:Class ;
                   rdfs:subClassOf <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu> .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ElektrickyRejnok
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/ElektrickyRejnok
 :ElektrickyRejnok rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( :Rejnok
                                                              [ rdf:type owl:Restriction ;
@@ -146,122 +283,278 @@
                                                            ) ;
                                         rdf:type owl:Class
                                       ] ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
+                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                        owl:unionOf ( <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu>
+                                                                      :ElektrickeOrgany
+                                                                    )
+                                                      ]
+                                  ] ;
                   rdfs:comment "Pro oddělení rejnoků kteří mají jako způsob obrany/lovu elektrické výboje" .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ElektrickyRejnokAtlantsky
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/ElektrickyRejnokAtlantsky
 :ElektrickyRejnokAtlantsky rdf:type owl:Class ;
-                           rdfs:subClassOf :Rejnok ,
-                                           [ rdf:type owl:Restriction ;
+                           owl:equivalentClass [ owl:intersectionOf ( :Rejnok
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
+                                                                        owl:someValuesFrom :ElektrickeOrgany
+                                                                      ]
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty :maBarvu ;
+                                                                        owl:someValuesFrom :Modra
+                                                                      ]
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty :maBarvu ;
+                                                                        owl:someValuesFrom :Seda
+                                                                      ]
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty :maTvarOcasu ;
+                                                                        owl:someValuesFrom :KratkyOcas
+                                                                      ]
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty :maTvarTela ;
+                                                                        owl:someValuesFrom :Ovalny
+                                                                      ]
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty :maVyskyt ;
+                                                                        owl:someValuesFrom :Morsky
+                                                                      ]
+                                                                    ) ;
+                                                 rdf:type owl:Class
+                                               ] ;
+                           rdfs:subClassOf [ rdf:type owl:Restriction ;
                                              owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
-                                             owl:someValuesFrom :ElektrickeOrgany
+                                             owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu>
+                                                                               :ElektrickeOrgany
+                                                                             )
+                                                               ]
                                            ] ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty :maBarvu ;
-                                             owl:someValuesFrom :Modra
-                                           ] ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty :maBarvu ;
-                                             owl:someValuesFrom :Seda
+                                             owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :Barva
+                                                                               :Modra
+                                                                               :Seda
+                                                                             )
+                                                               ]
                                            ] ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty :maTvarOcasu ;
-                                             owl:someValuesFrom :KratkyOcas
+                                             owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :KratkyOcas
+                                                                               :TvarOcasu
+                                                                             )
+                                                               ]
                                            ] ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty :maTvarTela ;
-                                             owl:someValuesFrom :Ovalny
+                                             owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :Ovalny
+                                                                               :TvarTela
+                                                                             )
+                                                               ]
                                            ] ,
                                            [ rdf:type owl:Restriction ;
                                              owl:onProperty :maVyskyt ;
-                                             owl:someValuesFrom :Morsky
+                                             owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( :MistoVyskytu
+                                                                               :Morsky
+                                                                             )
+                                                               ]
                                            ] .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ElektrickyRejnokPersky
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/ElektrickyRejnokPersky
 :ElektrickyRejnokPersky rdf:type owl:Class ;
-                        rdfs:subClassOf :Rejnok ,
-                                        [ rdf:type owl:Restriction ;
+                        owl:equivalentClass [ owl:intersectionOf ( :Rejnok
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
+                                                                     owl:someValuesFrom :ElektrickeOrgany
+                                                                   ]
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :maBarvu ;
+                                                                     owl:someValuesFrom :Hneda
+                                                                   ]
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :maBarvu ;
+                                                                     owl:someValuesFrom :Skvrnita
+                                                                   ]
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :maTvarOcasu ;
+                                                                     owl:someValuesFrom :KratkyOcas
+                                                                   ]
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :maTvarTela ;
+                                                                     owl:someValuesFrom :Ovalny
+                                                                   ]
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :maVyskyt ;
+                                                                     owl:someValuesFrom :Morsky
+                                                                   ]
+                                                                 ) ;
+                                              rdf:type owl:Class
+                                            ] ;
+                        rdfs:subClassOf [ rdf:type owl:Restriction ;
                                           owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
-                                          owl:someValuesFrom :ElektrickeOrgany
+                                          owl:allValuesFrom [ rdf:type owl:Class ;
+                                                              owl:unionOf ( <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu>
+                                                                            :ElektrickeOrgany
+                                                                          )
+                                                            ]
                                         ] ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty :maBarvu ;
-                                          owl:someValuesFrom :Hneda
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :maBarvu ;
-                                          owl:someValuesFrom :Skvrnita
+                                          owl:allValuesFrom [ rdf:type owl:Class ;
+                                                              owl:unionOf ( :Barva
+                                                                            :Hneda
+                                                                            :Skvrnita
+                                                                          )
+                                                            ]
                                         ] ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty :maTvarOcasu ;
-                                          owl:someValuesFrom :KratkyOcas
+                                          owl:allValuesFrom [ rdf:type owl:Class ;
+                                                              owl:unionOf ( :KratkyOcas
+                                                                            :TvarOcasu
+                                                                          )
+                                                            ]
                                         ] ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty :maTvarTela ;
-                                          owl:someValuesFrom :Ovalny
+                                          owl:allValuesFrom [ rdf:type owl:Class ;
+                                                              owl:unionOf ( :Ovalny
+                                                                            :TvarTela
+                                                                          )
+                                                            ]
                                         ] ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty :maVyskyt ;
-                                          owl:someValuesFrom :Morsky
+                                          owl:allValuesFrom [ rdf:type owl:Class ;
+                                                              owl:unionOf ( :MistoVyskytu
+                                                                            :Morsky
+                                                                          )
+                                                            ]
                                         ] .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ElektrickyRejnokSkvrnity
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/ElektrickyRejnokSkvrnity
 :ElektrickyRejnokSkvrnity rdf:type owl:Class ;
-                          rdfs:subClassOf :Rejnok ,
-                                          [ rdf:type owl:Restriction ;
+                          owl:equivalentClass [ owl:intersectionOf ( :Rejnok
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
+                                                                       owl:someValuesFrom :ElektrickeOrgany
+                                                                     ]
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :maBarvu ;
+                                                                       owl:someValuesFrom :Hneda
+                                                                     ]
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :maBarvu ;
+                                                                       owl:someValuesFrom :Seda
+                                                                     ]
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :maBarvu ;
+                                                                       owl:someValuesFrom :Skvrnita
+                                                                     ]
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :maTvarOcasu ;
+                                                                       owl:someValuesFrom :KratkyOcas
+                                                                     ]
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :maTvarTela ;
+                                                                       owl:someValuesFrom :Ovalny
+                                                                     ]
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :maVyskyt ;
+                                                                       owl:someValuesFrom :Morsky
+                                                                     ]
+                                                                   ) ;
+                                                rdf:type owl:Class
+                                              ] ;
+                          rdfs:subClassOf [ rdf:type owl:Restriction ;
                                             owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
-                                            owl:someValuesFrom :ElektrickeOrgany
+                                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                owl:unionOf ( <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu>
+                                                                              :ElektrickeOrgany
+                                                                            )
+                                                              ]
                                           ] ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty :maBarvu ;
-                                            owl:someValuesFrom :Hneda
-                                          ] ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty :maBarvu ;
-                                            owl:someValuesFrom :Seda
-                                          ] ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty :maBarvu ;
-                                            owl:someValuesFrom :Skvrnita
+                                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                owl:unionOf ( :Barva
+                                                                              :Hneda
+                                                                              :Seda
+                                                                              :Skvrnita
+                                                                            )
+                                                              ]
                                           ] ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty :maTvarOcasu ;
-                                            owl:someValuesFrom :KratkyOcas
+                                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                owl:unionOf ( :KratkyOcas
+                                                                              :TvarOcasu
+                                                                            )
+                                                              ]
                                           ] ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty :maTvarTela ;
-                                            owl:someValuesFrom :Ovalny
+                                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                owl:unionOf ( :Ovalny
+                                                                              :TvarTela
+                                                                            )
+                                                              ]
                                           ] ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty :maVyskyt ;
-                                            owl:someValuesFrom :Morsky
+                                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                owl:unionOf ( :MistoVyskytu
+                                                                              :Morsky
+                                                                            )
+                                                              ]
                                           ] .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Hneda
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Hneda
 :Hneda rdf:type owl:Class ;
        rdfs:subClassOf :Barva .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Kosoctverecne
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Kosoctverecne
 :Kosoctverecne rdf:type owl:Class ;
                rdfs:subClassOf :TvarTela .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#MasivniOcas
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/KratkyOcas
+:KratkyOcas rdf:type owl:Class ;
+            rdfs:subClassOf :TvarOcasu .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/MasivniOcas
 :MasivniOcas rdf:type owl:Class ;
              rdfs:subClassOf :TvarOcasu ;
              owl:disjointWith :TenkyOcas .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Modra
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/MistoVyskytu
+:MistoVyskytu rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Modra
 :Modra rdf:type owl:Class ;
        rdfs:subClassOf :Barva .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#MorskyRejnok
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Morsky
+:Morsky rdf:type owl:Class ;
+        rdfs:subClassOf :MistoVyskytu ;
+        owl:disjointWith :Sladkovodni .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/MorskyRejnok
 :MorskyRejnok rdf:type owl:Class ;
               owl:equivalentClass [ owl:intersectionOf ( :Rejnok
                                                          [ rdf:type owl:Restriction ;
@@ -271,444 +564,16 @@
                                                        ) ;
                                     rdf:type owl:Class
                                   ] ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty :maVyskyt ;
+                                owl:allValuesFrom [ rdf:type owl:Class ;
+                                                    owl:unionOf ( :MistoVyskytu
+                                                                  :Morsky
+                                                                )
+                                                  ]
+                              ] ;
               owl:disjointWith :SladkovodniRejnok ;
               rdfs:comment "Třída vybraná pro lepší přehlednost toho, kam kteří rejnoci patří, kteří jsou sladkovodní a kteří žijí ve vodě slané." .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#OstnatyOcas
-:OstnatyOcas rdf:type owl:Class ;
-             rdfs:subClassOf <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu> .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#RejnokKridloploutvy
-:RejnokKridloploutvy rdf:type owl:Class ;
-                     rdfs:subClassOf :Rejnok ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :maBarvu ;
-                                       owl:someValuesFrom :Hneda
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :maBarvu ;
-                                       owl:someValuesFrom :Seda
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :maTvarOcasu ;
-                                       owl:someValuesFrom :MasivniOcas
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :maTvarOcasu ;
-                                       owl:someValuesFrom :KratkyOcas
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :maTvarTela ;
-                                       owl:someValuesFrom :Plochy
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :maVyskyt ;
-                                       owl:someValuesFrom :Morsky
-                                     ] .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#RejnokMorsky
-:RejnokMorsky rdf:type owl:Class ;
-              rdfs:subClassOf :Rejnok ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maBarvu ;
-                                owl:someValuesFrom :Hneda
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maBarvu ;
-                                owl:someValuesFrom :Skvrnita
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maTvarOcasu ;
-                                owl:someValuesFrom :MasivniOcas
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maTvarOcasu ;
-                                owl:someValuesFrom :KratkyOcas
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maTvarTela ;
-                                owl:someValuesFrom :Trojuhelnikovy
-                              ] .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#RejnokTrnity
-:RejnokTrnity rdf:type owl:Class ;
-              rdfs:subClassOf :Rejnok ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maBarvu ;
-                                owl:someValuesFrom :Hneda
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maBarvu ;
-                                owl:someValuesFrom :Seda
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maBarvu ;
-                                owl:someValuesFrom :Skvrnita
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maTvarOcasu ;
-                                owl:someValuesFrom :MasivniOcas
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maTvarOcasu ;
-                                owl:someValuesFrom :KratkyOcas
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maTvarTela ;
-                                owl:someValuesFrom :Srdcovity
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maVyskyt ;
-                                owl:someValuesFrom :Morsky
-                              ] .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Seda
-:Seda rdf:type owl:Class ;
-      rdfs:subClassOf :Barva .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Skvrnita
-:Skvrnita rdf:type owl:Class ;
-          rdfs:subClassOf :Barva .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#SladkovodniRejnok
-:SladkovodniRejnok rdf:type owl:Class ;
-                   owl:equivalentClass [ owl:intersectionOf ( :Rejnok
-                                                              [ rdf:type owl:Restriction ;
-                                                                owl:onProperty :maVyskyt ;
-                                                                owl:someValuesFrom :Sladkovodni
-                                                              ]
-                                                            ) ;
-                                         rdf:type owl:Class
-                                       ] ;
-                   rdfs:comment "Třída vybraná pro lepší přehlednost toho, kam kteří rejnoci patří, kteří jsou sladkovodní a kteří žijí ve vodě slané." .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Srdcovity
-:Srdcovity rdf:type owl:Class ;
-           rdfs:subClassOf :TvarTela .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#TenkyOcas
-:TenkyOcas rdf:type owl:Class ;
-           rdfs:subClassOf :TvarOcasu .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#TestovaciTrida
-:TestovaciTrida rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#TrnuchaAmericka
-:TrnuchaAmericka rdf:type owl:Class ;
-                 rdfs:subClassOf :Rejnok ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
-                                   owl:someValuesFrom :OstnatyOcas
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :maBarvu ;
-                                   owl:someValuesFrom :Hneda
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :maBarvu ;
-                                   owl:someValuesFrom :Zelena
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :maBarvu ;
-                                   owl:someValuesFrom :Zluta
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :maTvarOcasu ;
-                                   owl:someValuesFrom :DlouhyOcas
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :maTvarOcasu ;
-                                   owl:someValuesFrom :OcasSOstnem
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :maTvarTela ;
-                                   owl:someValuesFrom :Ovalny
-                                 ] .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#TrnuchaCernoskvrnna
-:TrnuchaCernoskvrnna rdf:type owl:Class ;
-                     rdfs:subClassOf :Rejnok ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
-                                       owl:someValuesFrom :OstnatyOcas
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :maBarvu ;
-                                       owl:someValuesFrom :Cerna
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :maTvarOcasu ;
-                                       owl:someValuesFrom :DlouhyOcas
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :maTvarOcasu ;
-                                       owl:someValuesFrom :OcasSOstnem
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :maTvarTela ;
-                                       owl:someValuesFrom :Ovalny
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :maTvarTela ;
-                                       owl:someValuesFrom :Plochy
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :maVyskyt ;
-                                       owl:someValuesFrom :Sladkovodni
-                                     ] .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#TrnuchaKosoctverecna
-:TrnuchaKosoctverecna rdf:type owl:Class ;
-                      rdfs:subClassOf :Rejnok ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
-                                        owl:someValuesFrom :OstnatyOcas
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty :maBarvu ;
-                                        owl:someValuesFrom :Seda
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty :maBarvu ;
-                                        owl:someValuesFrom :Skvrnita
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty :maBarvu ;
-                                        owl:someValuesFrom :Zelena
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty :maTvarOcasu ;
-                                        owl:someValuesFrom :DlouhyOcas
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty :maTvarOcasu ;
-                                        owl:someValuesFrom :OcasSOstnem
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty :maTvarTela ;
-                                        owl:someValuesFrom :Kosoctverecne
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty :maVyskyt ;
-                                        owl:someValuesFrom :Morsky
-                                      ] .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#TrnuchaObecna
-:TrnuchaObecna rdf:type owl:Class ;
-               rdfs:subClassOf :Rejnok ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
-                                 owl:someValuesFrom :OstnatyOcas
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :maBarvu ;
-                                 owl:someValuesFrom :Hneda
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :maBarvu ;
-                                 owl:someValuesFrom :Seda
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :maTvarOcasu ;
-                                 owl:someValuesFrom :DlouhyOcas
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :maTvarOcasu ;
-                                 owl:someValuesFrom :OcasSOstnem
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :maTvarTela ;
-                                 owl:someValuesFrom :Kosoctverecne
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :maVyskyt ;
-                                 owl:someValuesFrom :Morsky
-                               ] .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#TrnuchaOkata
-:TrnuchaOkata rdf:type owl:Class ;
-              rdfs:subClassOf :Rejnok ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
-                                owl:someValuesFrom :OstnatyOcas
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maBarvu ;
-                                owl:someValuesFrom :Hneda
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maTvarOcasu ;
-                                owl:someValuesFrom :DlouhyOcas
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maTvarOcasu ;
-                                owl:someValuesFrom :OcasSOstnem
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maTvarTela ;
-                                owl:someValuesFrom :Ovalny
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maTvarTela ;
-                                owl:someValuesFrom :Plochy
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :maVyskyt ;
-                                owl:someValuesFrom :Sladkovodni
-                              ] .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#TrnuchaOrbignyho
-:TrnuchaOrbignyho rdf:type owl:Class ;
-                  rdfs:subClassOf :Rejnok ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
-                                    owl:someValuesFrom :OstnatyOcas
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :maBarvu ;
-                                    owl:someValuesFrom :Hneda
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :maBarvu ;
-                                    owl:someValuesFrom :Skvrnita
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :maTvarOcasu ;
-                                    owl:someValuesFrom :TenkyOcas
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :maTvarOcasu ;
-                                    owl:someValuesFrom :DlouhyOcas
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :maTvarOcasu ;
-                                    owl:someValuesFrom :OcasSOstnem
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :maTvarTela ;
-                                    owl:someValuesFrom :Ovalny
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :maTvarTela ;
-                                    owl:someValuesFrom :Plochy
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :maVyskyt ;
-                                    owl:someValuesFrom :Sladkovodni
-                                  ] .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#TrnuchaVelkozuba
-:TrnuchaVelkozuba rdf:type owl:Class ;
-                  rdfs:subClassOf :Rejnok ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :maBarvu ;
-                                    owl:someValuesFrom :Hneda
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :maBarvu ;
-                                    owl:someValuesFrom :Skvrnita
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :maTvarOcasu ;
-                                    owl:someValuesFrom :MasivniOcas
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :maTvarOcasu ;
-                                    owl:someValuesFrom :DlouhyOcas
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :maTvarOcasu ;
-                                    owl:someValuesFrom :OcasSOstnem
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :maTvarTela ;
-                                    owl:someValuesFrom :Ovalny
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :maTvarTela ;
-                                    owl:someValuesFrom :Plochy
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :maVyskyt ;
-                                    owl:someValuesFrom :Sladkovodni
-                                  ] .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Trojuhelnikovy
-:Trojuhelnikovy rdf:type owl:Class ;
-                rdfs:subClassOf :TvarTela .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Zelena
-:Zelena rdf:type owl:Class ;
-        rdfs:subClassOf :Barva .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#Zluta
-:Zluta rdf:type owl:Class ;
-       rdfs:subClassOf :Barva .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu
-<http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu> rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Barva
-:Barva rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Bicoviti
-:Bicoviti rdf:type owl:Class ;
-          owl:equivalentClass [ owl:intersectionOf ( :TvarOcasu
-                                                     [ rdf:type owl:Restriction ;
-                                                       owl:onProperty :jeTvarOcasu ;
-                                                       owl:someValuesFrom :DlouhyOcas
-                                                     ]
-                                                     [ rdf:type owl:Restriction ;
-                                                       owl:onProperty :jeTvarOcasu ;
-                                                       owl:someValuesFrom :OcasSOstnem
-                                                     ]
-                                                   ) ;
-                                rdf:type owl:Class
-                              ] .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/DlouhyOcas
-:DlouhyOcas rdf:type owl:Class ;
-            rdfs:subClassOf :TvarOcasu ;
-            owl:disjointWith :KratkyOcas .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/KratkyOcas
-:KratkyOcas rdf:type owl:Class ;
-            rdfs:subClassOf :TvarOcasu .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/MistoVyskytu
-:MistoVyskytu rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Morsky
-:Morsky rdf:type owl:Class ;
-        rdfs:subClassOf :MistoVyskytu ;
-        owl:disjointWith :Sladkovodni .
 
 
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/OcasBezOstnu
@@ -720,6 +585,11 @@
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/OcasSOstnem
 :OcasSOstnem rdf:type owl:Class ;
              rdfs:subClassOf :TvarOcasu .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/OstnatyOcas
+:OstnatyOcas rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu> .
 
 
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Ovalny
@@ -756,25 +626,802 @@
                         ] .
 
 
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/RejnokKridloploutvy
+:RejnokKridloploutvy rdf:type owl:Class ;
+                     owl:equivalentClass [ owl:intersectionOf ( :Rejnok
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :maBarvu ;
+                                                                  owl:someValuesFrom :Hneda
+                                                                ]
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :maBarvu ;
+                                                                  owl:someValuesFrom :Seda
+                                                                ]
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :maTvarOcasu ;
+                                                                  owl:someValuesFrom :KratkyOcas
+                                                                ]
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :maTvarOcasu ;
+                                                                  owl:someValuesFrom :MasivniOcas
+                                                                ]
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :maTvarTela ;
+                                                                  owl:someValuesFrom :Plochy
+                                                                ]
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :maVyskyt ;
+                                                                  owl:someValuesFrom :Morsky
+                                                                ]
+                                                              ) ;
+                                           rdf:type owl:Class
+                                         ] ;
+                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                       owl:onProperty :maBarvu ;
+                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                           owl:unionOf ( :Barva
+                                                                         :Hneda
+                                                                         :Seda
+                                                                       )
+                                                         ]
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :maTvarOcasu ;
+                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                           owl:unionOf ( :KratkyOcas
+                                                                         :MasivniOcas
+                                                                         :TvarOcasu
+                                                                       )
+                                                         ]
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :maTvarTela ;
+                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                           owl:unionOf ( :Plochy
+                                                                         :TvarTela
+                                                                       )
+                                                         ]
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :maVyskyt ;
+                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                           owl:unionOf ( :MistoVyskytu
+                                                                         :Morsky
+                                                                       )
+                                                         ]
+                                     ] .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/RejnokMorsky
+:RejnokMorsky rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( :Rejnok
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maBarvu ;
+                                                           owl:someValuesFrom :Hneda
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maBarvu ;
+                                                           owl:someValuesFrom :Skvrnita
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maTvarOcasu ;
+                                                           owl:someValuesFrom :KratkyOcas
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maTvarOcasu ;
+                                                           owl:someValuesFrom :MasivniOcas
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maTvarTela ;
+                                                           owl:someValuesFrom :Trojuhelnikovy
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty :maBarvu ;
+                                owl:allValuesFrom [ rdf:type owl:Class ;
+                                                    owl:unionOf ( :Barva
+                                                                  :Hneda
+                                                                  :Skvrnita
+                                                                )
+                                                  ]
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :maTvarOcasu ;
+                                owl:allValuesFrom [ rdf:type owl:Class ;
+                                                    owl:unionOf ( :KratkyOcas
+                                                                  :MasivniOcas
+                                                                  :TvarOcasu
+                                                                )
+                                                  ]
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :maTvarTela ;
+                                owl:allValuesFrom [ rdf:type owl:Class ;
+                                                    owl:unionOf ( :Trojuhelnikovy
+                                                                  :TvarTela
+                                                                )
+                                                  ]
+                              ] .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/RejnokTrnity
+:RejnokTrnity rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( :Rejnok
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maBarvu ;
+                                                           owl:someValuesFrom :Hneda
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maBarvu ;
+                                                           owl:someValuesFrom :Seda
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maBarvu ;
+                                                           owl:someValuesFrom :Skvrnita
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maTvarOcasu ;
+                                                           owl:someValuesFrom :KratkyOcas
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maTvarOcasu ;
+                                                           owl:someValuesFrom :MasivniOcas
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maTvarTela ;
+                                                           owl:someValuesFrom :Srdcovity
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maVyskyt ;
+                                                           owl:someValuesFrom :Morsky
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty :maBarvu ;
+                                owl:allValuesFrom [ rdf:type owl:Class ;
+                                                    owl:unionOf ( :Barva
+                                                                  :Hneda
+                                                                  :Seda
+                                                                  :Skvrnita
+                                                                )
+                                                  ]
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :maTvarOcasu ;
+                                owl:allValuesFrom [ rdf:type owl:Class ;
+                                                    owl:unionOf ( :KratkyOcas
+                                                                  :MasivniOcas
+                                                                  :TvarOcasu
+                                                                )
+                                                  ]
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :maTvarTela ;
+                                owl:allValuesFrom [ rdf:type owl:Class ;
+                                                    owl:unionOf ( :Srdcovity
+                                                                  :TvarTela
+                                                                )
+                                                  ]
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :maVyskyt ;
+                                owl:allValuesFrom [ rdf:type owl:Class ;
+                                                    owl:unionOf ( :MistoVyskytu
+                                                                  :Morsky
+                                                                )
+                                                  ]
+                              ] .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Seda
+:Seda rdf:type owl:Class ;
+      rdfs:subClassOf :Barva .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Skvrnita
+:Skvrnita rdf:type owl:Class ;
+          rdfs:subClassOf :Barva .
+
+
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Sladkovodni
 :Sladkovodni rdf:type owl:Class ;
              rdfs:subClassOf :MistoVyskytu .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Trnuchy
-:Trnuchy rdf:type owl:Class ;
-         owl:equivalentClass [ owl:intersectionOf ( :TvarOcasu
-                                                    [ rdf:type owl:Restriction ;
-                                                      owl:onProperty :jeTvarOcasu ;
-                                                      owl:someValuesFrom :KratkyOcas
-                                                    ]
-                                                    [ rdf:type owl:Restriction ;
-                                                      owl:onProperty :jeTvarOcasu ;
-                                                      owl:someValuesFrom :OcasBezOstnu
-                                                    ]
-                                                  ) ;
-                               rdf:type owl:Class
-                             ] .
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/SladkovodniRejnok
+:SladkovodniRejnok rdf:type owl:Class ;
+                   owl:equivalentClass [ owl:intersectionOf ( :Rejnok
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :maVyskyt ;
+                                                                owl:someValuesFrom :Sladkovodni
+                                                              ]
+                                                            ) ;
+                                         rdf:type owl:Class
+                                       ] ;
+                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                     owl:onProperty :maVyskyt ;
+                                     owl:allValuesFrom [ rdf:type owl:Class ;
+                                                         owl:unionOf ( :MistoVyskytu
+                                                                       :Sladkovodni
+                                                                     )
+                                                       ]
+                                   ] ;
+                   rdfs:comment "Třída vybraná pro lepší přehlednost toho, kam kteří rejnoci patří, kteří jsou sladkovodní a kteří žijí ve vodě slané." .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Srdcovity
+:Srdcovity rdf:type owl:Class ;
+           rdfs:subClassOf :TvarTela .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/TenkyOcas
+:TenkyOcas rdf:type owl:Class ;
+           rdfs:subClassOf :TvarOcasu .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/TestovaciTrida
+:TestovaciTrida rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/TrnuchaAmericka
+:TrnuchaAmericka rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( :Rejnok
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
+                                                              owl:someValuesFrom :OstnatyOcas
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :maBarvu ;
+                                                              owl:someValuesFrom :Hneda
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :maBarvu ;
+                                                              owl:someValuesFrom :Zelena
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :maBarvu ;
+                                                              owl:someValuesFrom :Zluta
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :maTvarOcasu ;
+                                                              owl:someValuesFrom :DlouhyOcas
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :maTvarOcasu ;
+                                                              owl:someValuesFrom :OcasSOstnem
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :maTvarTela ;
+                                                              owl:someValuesFrom :Ovalny
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
+                                   owl:allValuesFrom [ rdf:type owl:Class ;
+                                                       owl:unionOf ( <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu>
+                                                                     :OstnatyOcas
+                                                                   )
+                                                     ]
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :maBarvu ;
+                                   owl:allValuesFrom [ rdf:type owl:Class ;
+                                                       owl:unionOf ( :Barva
+                                                                     :Hneda
+                                                                     :Zelena
+                                                                     :Zluta
+                                                                   )
+                                                     ]
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :maTvarOcasu ;
+                                   owl:allValuesFrom [ rdf:type owl:Class ;
+                                                       owl:unionOf ( :DlouhyOcas
+                                                                     :OcasSOstnem
+                                                                     :TvarOcasu
+                                                                   )
+                                                     ]
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :maTvarTela ;
+                                   owl:allValuesFrom [ rdf:type owl:Class ;
+                                                       owl:unionOf ( :Ovalny
+                                                                     :TvarTela
+                                                                   )
+                                                     ]
+                                 ] .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/TrnuchaCernoskvrnna
+:TrnuchaCernoskvrnna rdf:type owl:Class ;
+                     owl:equivalentClass [ owl:intersectionOf ( :Rejnok
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
+                                                                  owl:someValuesFrom :OstnatyOcas
+                                                                ]
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :maBarvu ;
+                                                                  owl:someValuesFrom :Cerna
+                                                                ]
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :maTvarOcasu ;
+                                                                  owl:someValuesFrom :DlouhyOcas
+                                                                ]
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :maTvarOcasu ;
+                                                                  owl:someValuesFrom :OcasSOstnem
+                                                                ]
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :maTvarTela ;
+                                                                  owl:someValuesFrom :Ovalny
+                                                                ]
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :maTvarTela ;
+                                                                  owl:someValuesFrom :Plochy
+                                                                ]
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :maVyskyt ;
+                                                                  owl:someValuesFrom :Sladkovodni
+                                                                ]
+                                                              ) ;
+                                           rdf:type owl:Class
+                                         ] ;
+                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                       owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
+                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                           owl:unionOf ( <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu>
+                                                                         :OstnatyOcas
+                                                                       )
+                                                         ]
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :maBarvu ;
+                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                           owl:unionOf ( :Barva
+                                                                         :Cerna
+                                                                       )
+                                                         ]
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :maTvarOcasu ;
+                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                           owl:unionOf ( :DlouhyOcas
+                                                                         :OcasSOstnem
+                                                                         :TvarOcasu
+                                                                       )
+                                                         ]
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :maTvarTela ;
+                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                           owl:unionOf ( :Ovalny
+                                                                         :Plochy
+                                                                         :TvarTela
+                                                                       )
+                                                         ]
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :maVyskyt ;
+                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                           owl:unionOf ( :MistoVyskytu
+                                                                         :Sladkovodni
+                                                                       )
+                                                         ]
+                                     ] .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/TrnuchaKosoctverecna
+:TrnuchaKosoctverecna rdf:type owl:Class ;
+                      owl:equivalentClass [ owl:intersectionOf ( :Rejnok
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
+                                                                   owl:someValuesFrom :OstnatyOcas
+                                                                 ]
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :maBarvu ;
+                                                                   owl:someValuesFrom :Seda
+                                                                 ]
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :maBarvu ;
+                                                                   owl:someValuesFrom :Skvrnita
+                                                                 ]
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :maBarvu ;
+                                                                   owl:someValuesFrom :Zelena
+                                                                 ]
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :maTvarOcasu ;
+                                                                   owl:someValuesFrom :DlouhyOcas
+                                                                 ]
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :maTvarOcasu ;
+                                                                   owl:someValuesFrom :OcasSOstnem
+                                                                 ]
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :maTvarTela ;
+                                                                   owl:someValuesFrom :Kosoctverecne
+                                                                 ]
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :maVyskyt ;
+                                                                   owl:someValuesFrom :Morsky
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ] ;
+                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                        owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
+                                        owl:allValuesFrom [ rdf:type owl:Class ;
+                                                            owl:unionOf ( <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu>
+                                                                          :OstnatyOcas
+                                                                        )
+                                                          ]
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :maBarvu ;
+                                        owl:allValuesFrom [ rdf:type owl:Class ;
+                                                            owl:unionOf ( :Barva
+                                                                          :Seda
+                                                                          :Skvrnita
+                                                                          :Zelena
+                                                                        )
+                                                          ]
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :maTvarOcasu ;
+                                        owl:allValuesFrom [ rdf:type owl:Class ;
+                                                            owl:unionOf ( :DlouhyOcas
+                                                                          :OcasSOstnem
+                                                                          :TvarOcasu
+                                                                        )
+                                                          ]
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :maTvarTela ;
+                                        owl:allValuesFrom [ rdf:type owl:Class ;
+                                                            owl:unionOf ( :Kosoctverecne
+                                                                          :TvarTela
+                                                                        )
+                                                          ]
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :maVyskyt ;
+                                        owl:allValuesFrom [ rdf:type owl:Class ;
+                                                            owl:unionOf ( :MistoVyskytu
+                                                                          :Morsky
+                                                                        )
+                                                          ]
+                                      ] .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/TrnuchaObecna
+:TrnuchaObecna rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( :Rejnok
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
+                                                            owl:someValuesFrom :OstnatyOcas
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :maBarvu ;
+                                                            owl:someValuesFrom :Hneda
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :maBarvu ;
+                                                            owl:someValuesFrom :Seda
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :maTvarOcasu ;
+                                                            owl:someValuesFrom :DlouhyOcas
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :maTvarOcasu ;
+                                                            owl:someValuesFrom :OcasSOstnem
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :maTvarTela ;
+                                                            owl:someValuesFrom :Kosoctverecne
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :maVyskyt ;
+                                                            owl:someValuesFrom :Morsky
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
+                                 owl:allValuesFrom [ rdf:type owl:Class ;
+                                                     owl:unionOf ( <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu>
+                                                                   :OstnatyOcas
+                                                                 )
+                                                   ]
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :maBarvu ;
+                                 owl:allValuesFrom [ rdf:type owl:Class ;
+                                                     owl:unionOf ( :Barva
+                                                                   :Hneda
+                                                                   :Seda
+                                                                 )
+                                                   ]
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :maTvarOcasu ;
+                                 owl:allValuesFrom [ rdf:type owl:Class ;
+                                                     owl:unionOf ( :DlouhyOcas
+                                                                   :OcasSOstnem
+                                                                   :TvarOcasu
+                                                                 )
+                                                   ]
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :maTvarTela ;
+                                 owl:allValuesFrom [ rdf:type owl:Class ;
+                                                     owl:unionOf ( :Kosoctverecne
+                                                                   :TvarTela
+                                                                 )
+                                                   ]
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :maVyskyt ;
+                                 owl:allValuesFrom [ rdf:type owl:Class ;
+                                                     owl:unionOf ( :MistoVyskytu
+                                                                   :Morsky
+                                                                 )
+                                                   ]
+                               ] .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/TrnuchaOkata
+:TrnuchaOkata rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( :Rejnok
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
+                                                           owl:someValuesFrom :OstnatyOcas
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maBarvu ;
+                                                           owl:someValuesFrom :Hneda
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maTvarOcasu ;
+                                                           owl:someValuesFrom :DlouhyOcas
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maTvarOcasu ;
+                                                           owl:someValuesFrom :OcasSOstnem
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maTvarTela ;
+                                                           owl:someValuesFrom :Ovalny
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maTvarTela ;
+                                                           owl:someValuesFrom :Plochy
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :maVyskyt ;
+                                                           owl:someValuesFrom :Sladkovodni
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
+                                owl:allValuesFrom [ rdf:type owl:Class ;
+                                                    owl:unionOf ( <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu>
+                                                                  :OstnatyOcas
+                                                                )
+                                                  ]
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :maBarvu ;
+                                owl:allValuesFrom [ rdf:type owl:Class ;
+                                                    owl:unionOf ( :Barva
+                                                                  :Hneda
+                                                                )
+                                                  ]
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :maTvarOcasu ;
+                                owl:allValuesFrom [ rdf:type owl:Class ;
+                                                    owl:unionOf ( :DlouhyOcas
+                                                                  :OcasSOstnem
+                                                                  :TvarOcasu
+                                                                )
+                                                  ]
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :maTvarTela ;
+                                owl:allValuesFrom [ rdf:type owl:Class ;
+                                                    owl:unionOf ( :Ovalny
+                                                                  :Plochy
+                                                                  :TvarTela
+                                                                )
+                                                  ]
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :maVyskyt ;
+                                owl:allValuesFrom [ rdf:type owl:Class ;
+                                                    owl:unionOf ( :MistoVyskytu
+                                                                  :Sladkovodni
+                                                                )
+                                                  ]
+                              ] .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/TrnuchaOrbignyho
+:TrnuchaOrbignyho rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( :Rejnok
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
+                                                               owl:someValuesFrom :OstnatyOcas
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :maBarvu ;
+                                                               owl:someValuesFrom :Hneda
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :maBarvu ;
+                                                               owl:someValuesFrom :Skvrnita
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :maTvarOcasu ;
+                                                               owl:someValuesFrom :DlouhyOcas
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :maTvarOcasu ;
+                                                               owl:someValuesFrom :OcasSOstnem
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :maTvarOcasu ;
+                                                               owl:someValuesFrom :TenkyOcas
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :maTvarTela ;
+                                                               owl:someValuesFrom :Ovalny
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :maTvarTela ;
+                                                               owl:someValuesFrom :Plochy
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :maVyskyt ;
+                                                               owl:someValuesFrom :Sladkovodni
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#maObranu/Lov> ;
+                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                        owl:unionOf ( <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu>
+                                                                      :OstnatyOcas
+                                                                    )
+                                                      ]
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :maBarvu ;
+                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                        owl:unionOf ( :Barva
+                                                                      :Hneda
+                                                                      :Skvrnita
+                                                                    )
+                                                      ]
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :maTvarOcasu ;
+                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                        owl:unionOf ( :DlouhyOcas
+                                                                      :OcasSOstnem
+                                                                      :TenkyOcas
+                                                                      :TvarOcasu
+                                                                    )
+                                                      ]
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :maTvarTela ;
+                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                        owl:unionOf ( :Ovalny
+                                                                      :Plochy
+                                                                      :TvarTela
+                                                                    )
+                                                      ]
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :maVyskyt ;
+                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                        owl:unionOf ( :MistoVyskytu
+                                                                      :Sladkovodni
+                                                                    )
+                                                      ]
+                                  ] .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/TrnuchaVelkozuba
+:TrnuchaVelkozuba rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( :Rejnok
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :maBarvu ;
+                                                               owl:someValuesFrom :Hneda
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :maBarvu ;
+                                                               owl:someValuesFrom :Skvrnita
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :maTvarOcasu ;
+                                                               owl:someValuesFrom :DlouhyOcas
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :maTvarOcasu ;
+                                                               owl:someValuesFrom :MasivniOcas
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :maTvarOcasu ;
+                                                               owl:someValuesFrom :OcasSOstnem
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :maTvarTela ;
+                                                               owl:someValuesFrom :Ovalny
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :maTvarTela ;
+                                                               owl:someValuesFrom :Plochy
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :maVyskyt ;
+                                                               owl:someValuesFrom :Sladkovodni
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty :maBarvu ;
+                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                        owl:unionOf ( :Barva
+                                                                      :Hneda
+                                                                      :Skvrnita
+                                                                    )
+                                                      ]
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :maTvarOcasu ;
+                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                        owl:unionOf ( :DlouhyOcas
+                                                                      :MasivniOcas
+                                                                      :OcasSOstnem
+                                                                      :TvarOcasu
+                                                                    )
+                                                      ]
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :maTvarTela ;
+                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                        owl:unionOf ( :Ovalny
+                                                                      :Plochy
+                                                                      :TvarTela
+                                                                    )
+                                                      ]
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :maVyskyt ;
+                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                        owl:unionOf ( :MistoVyskytu
+                                                                      :Sladkovodni
+                                                                    )
+                                                      ]
+                                  ] .
+
+
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Trojuhelnikovy
+:Trojuhelnikovy rdf:type owl:Class ;
+                rdfs:subClassOf :TvarTela .
 
 
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/TvarOcasu
@@ -782,41 +1429,25 @@
 
 
 ###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/TvarTela
-:TvarTela rdf:type owl:Class .
+:TvarTela rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:unionOf ( :Kosoctverecne
+                                              :Ovalny
+                                              :Plochy
+                                              :Srdcovity
+                                              :Trojuhelnikovy
+                                            )
+                              ] .
 
 
-#################################################################
-#    Individuals
-#################################################################
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Bičovitý
-:Bičovitý rdf:type owl:NamedIndividual ,
-                   :DlouhyOcas ,
-                   :OcasSOstnem .
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Zelena
+:Zelena rdf:type owl:Class ;
+        rdfs:subClassOf :Barva .
 
 
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Malá
-:Malá rdf:type owl:NamedIndividual .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Modrá
-:Modrá rdf:type owl:NamedIndividual ,
-                :Barva .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/ObvykléTělo
-:ObvykléTělo rdf:type owl:NamedIndividual ,
-                      :TvarTela ;
-             rdfs:label "Standardní tvar těla" .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/PlochýOcas
-:PlochýOcas rdf:type owl:NamedIndividual ,
-                     :TvarOcasu .
-
-
-###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/UDna
-:UDna rdf:type owl:NamedIndividual .
+###  http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4/Zluta
+:Zluta rdf:type owl:Class ;
+       rdfs:subClassOf :Barva .
 
 
 #################################################################
@@ -824,9 +1455,9 @@
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :TestovaciTrida
-                <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu>
+  owl:members ( <http://www.semanticweb.org/ondrahana/ontologies/2025/3/untitled-ontology-4#ZpusobObrany/Lovu>
                 :Rejnok
+                :TestovaciTrida
                 :TvarOcasu
                 :TvarTela
               )
@@ -841,4 +1472,4 @@
 ] .
 
 
-###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
